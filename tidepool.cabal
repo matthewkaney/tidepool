@@ -1,0 +1,26 @@
+cabal-version: 2.4
+name: tidepool
+version: 0.1.0
+synopsis: Standalone app for Tidal Cycles
+description: Experimental standalone app for Tidal Cycles. Accepts input via OSC
+             messages and evaluates code using a stripped-down compiler based on
+             tidal-parser.
+bug-reports: https://github.com/mindofmatthew/tidepool/issues
+license: GPL-3.0-or-later
+license-file: LICENSE
+author: Matthew Kaney
+maintainer: matthew.s.kaney@gmail.com
+copyright: (C) Matthew Kaney, Alex McLean, David Ogborn and contributors, 2023
+category: Sound
+extra-source-files:
+    CHANGELOG.md
+    README.md
+
+executable tidepool
+    main-is: Main.hs
+    build-depends:
+        base ^>=4.16.4.0,
+        hosc ^>=0.20,
+        tidal ^>=1.9.4
+    hs-source-dirs: app
+    default-language: Haskell2010
