@@ -18,9 +18,16 @@ extra-source-files:
 
 executable tidepool
     main-is: Main.hs
+    other-modules:
+        Sound.Tidal.Parse,
+        Sound.Tidal.Parse.TH
     build-depends:
         base ^>=4.16.4.0,
+        haskellish >= 0.3.2 && < 0.4,
         hosc ^>=0.20,
+        mtl >= 2.2.2 && <2.3,
+        template-haskell,
+        text < 2.1,
         tidal ^>=1.9.4
     hs-source-dirs: app
     default-language: Haskell2010

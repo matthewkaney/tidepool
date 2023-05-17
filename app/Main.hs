@@ -1,5 +1,7 @@
 module Main where
 
+import Sound.Tidal.Parse
+
 import Sound.Osc.Fd as O
 
 listenPort = 6011
@@ -14,4 +16,4 @@ main = do udp <- udpServer "127.0.0.1" listenPort
                    loop udp
 
 act :: O.Udp -> Maybe O.Message -> IO ()
-act _ _ = putStrLn "aha"
+act _ (Just (O.Message _ [O.AsciiString str])) = (putStrLn . show . parseTidal) (O.ascii_to_string str)
